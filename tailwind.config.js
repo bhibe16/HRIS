@@ -9,6 +9,7 @@ module.exports = {
  theme: {
     extend: {
       colors: {
+        pic: '#fad1b1',
         midnightBlueStart: '#161925',
         midnightBlueEnd: '#235789',
         sidebar: '#0F0F0F',

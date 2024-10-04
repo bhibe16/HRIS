@@ -39,6 +39,7 @@
                     <span class="material-icons">close</span>
                 </button>
             </div>
+
             <ul class="mt-4 space-y-2 font-medium">
                 <li>
                     <a href="" class="flex items-center p-2 text-yellow-200 rounded hover:bg-yellow-700 dark:hover:bg-yellow-600">
@@ -55,29 +56,67 @@
                     </a>
                 </li>
                 <li>
-    <form method="POST" action="{{ route('logout') }}">
-        @csrf
-        <button type="submit" class="flex items-center p-2 bg-red-500 text-white rounded hover:bg-red-600">
-            <!-- SVG Log Out Icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6-4v12" />
-            </svg>
-            <span class="ml-3">Log Out</span>
-        </button>
-    </form>
-</li>
-
+                    <form method="POST" action="{{ route('logout') }}">
+                        @csrf
+                        <button type="submit" class="flex items-center p-2 bg-red-500 text-white rounded hover:bg-red-600">
+                            <!-- SVG Log Out Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6-4v12" />
+                            </svg>
+                            <span class="ml-3">Log Out</span>
+                        </button>
+                    </form>
+                </li>
             </ul>
         </div>
     </aside>
 
     <!-- Main Content Area -->
     <main class="bg-yellow-100 dark:bg-yellow-900 text-black dark:text-yellow-100 p-8 sm:ml-64 min-h-screen">
-        <h2 class="text-3xl font-bold mb-4 text-black">Welcome to HRIS</h2>
-        <p class="mb-6 text-black">This is the main content area. You can add your content here.</p>
-        <div class="container">
-            @yield('main')
+    <div class="flex flex-col justify-start min-h-screen bg-yellow-100">
+    <!-- Total Employees Section (Larger Size) -->
+    <div class="bg-white p-10 rounded-lg shadow-lg mb-6 w-full max-w-2xl text-center">
+        <h2 class="text-4xl font-bold">Total Employees: 4</h2>
+    </div>
+
+    <!-- Employee Cards Row (Aligned with Emily White) -->
+    <div class="flex justify-center items-center gap-6 w-full max-w-7xl">
+        <!-- John Doe -->
+        <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center w-full sm:w-1/4">
+            <img src="#" alt="Profile Image" class="rounded-full w-24 h-24 mb-4">
+            <h3 class="font-bold">John Doe</h3>
+            <p>Position: Manager</p>
+            <p>Department: HR</p>
         </div>
+
+        <!-- Jane Smith -->
+        <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center w-full sm:w-1/4">
+            <img src="#" alt="Profile Image" class="rounded-full w-24 h-24 mb-4">
+            <h3 class="font-bold">Jane Smith</h3>
+            <p>Position: Developer</p>
+            <p>Department: IT</p>
+        </div>
+
+        <!-- Michael Brown -->
+        <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center w-full sm:w-1/4">
+            <img src="#" alt="Profile Image" class="rounded-full w-24 h-24 mb-4">
+            <h3 class="font-bold">Michael Brown</h3>
+            <p>Position: Accountant</p>
+            <p>Department: Finance</p>
+        </div>
+
+        <!-- Emily White -->
+        <div class="bg-white p-6 rounded-lg shadow-lg flex flex-col items-center w-full sm:w-1/4">
+            <img src="#" alt="Profile Image" class="rounded-full w-24 h-24 mb-4">
+            <h3 class="font-bold">Emily White</h3>
+            <p>Position: Designer</p>
+            <p>Department: Marketing</p>
+        </div>
+    </div>
+</div>
+
+
+
     </main>
 
     <!-- JavaScript for Sidebar and Dark Mode Toggle -->
@@ -99,12 +138,12 @@
 
     // Update the icon based on the theme
     function updateIcon() {
-  if (rootElement.classList.contains('dark')) {
-    themeToggle.innerHTML = '<span class="material-icons">wb_sunny</span>'; // Sun icon for light mode
-  } else {
-    themeToggle.innerHTML = '<span class="material-icons">brightness_2</span>'; // Moon icon for dark mode
-  }
-}
+        if (rootElement.classList.contains('dark')) {
+            themeToggle.innerHTML = '<span class="material-icons">wb_sunny</span>'; // Sun icon for light mode
+        } else {
+            themeToggle.innerHTML = '<span class="material-icons">brightness_2</span>'; // Moon icon for dark mode
+        }
+    }
 
     // Toggle dark/light mode and update the icon
     themeToggle.addEventListener('click', () => {
@@ -122,6 +161,6 @@
         rootElement.classList.remove('dark');
     }
     updateIcon();
-</script>
+    </script>
 </body>
 </html>

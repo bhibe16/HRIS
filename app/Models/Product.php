@@ -14,5 +14,6 @@ class Product extends Model
         'Last_name',
         'Department',
         'Position',
+        'image'
     ];
 }

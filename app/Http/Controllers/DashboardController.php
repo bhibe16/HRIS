@@ -6,9 +6,10 @@ use Illuminate\Http\Request;
 
 class DashboardController extends Controller
 {
-    public function index()
+    // Method to handle dashboard logic
+    public function dashboard()
     {
-        // Return the view for the dashboard
-        return view('dashboard'); // Make sure to create this view file
+        // You can return a view or handle the dashboard logic here
+        return view('dashboard'); // Assuming you have a 'dashboard.blade.php' view
     }
 }

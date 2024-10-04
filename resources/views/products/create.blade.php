@@ -42,7 +42,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="flex items-center p-2 text-white rounded hover:bg-gray-700">
+                    <a href="{{ route('product.index') }}" class="flex items-center p-2 text-white rounded hover:bg-gray-700">
                         <span class="material-icons">people</span>
                         <span class="ml-3">Employee Records</span>
                     </a>
@@ -54,11 +54,11 @@
     <!-- Main Content Area -->
     <main class="bg-gray-800 text-black p-8 sm:ml-64 min-h-screen">
         <div>
-            @if(session()->has('success'))
-                <div class="bg-green-500 text-white p-2 rounded mb-4">
-                    {{ session('success') }}
-                </div>
-            @endif
+        @if (session('success') && session('image'))
+    <div class="mt-4">
+        <img src="{{ asset('storage/public' . session('image')) }}" alt="Uploaded Image" class="max-w-full h-auto border rounded" style="max-width: 300px;">
+    </div>
+@endif
         </div>
 
         <h2 class="text-xl text-white font-semibold mb-4">Create New Employee</h2>
@@ -72,33 +72,47 @@
             @endif
         </div>
         
-        <!--Create Employees-->
-        <div class="w-30 md:w-60 mx-auto">
-            <form method="post" action="{{ route('product.store') }}" class="bg-gray-700 p-6 rounded-lg">
+        <!-- Create Employees Form -->
+        <div class="w-full md:w-1/2 mx-auto">
+            <form method="POST" action="{{ route('product.index') }}" enctype="multipart/form-data" class="bg-gray-700 p-6 rounded-lg">
                 @csrf 
                 @method('post')
+                
+                <!-- First Name Field -->
                 <div class="mb-4">
                     <label for="first_name" class="block text-sm font-medium mb-1 text-white">First Name</label>
                     <input type="text" id="first_name" name="First_name" placeholder="Firstname" value="{{ old('First_name') }}" class="w-full p-2 border rounded transition-colors duration-200" required />
                 </div>
+                
+                <!-- Last Name Field -->
                 <div class="mb-4">
                     <label for="last_name" class="block text-sm font-medium mb-1 text-white">Last Name</label>
                     <input type="text" id="last_name" name="Last_name" placeholder="Lastname" value="{{ old('Last_name') }}" class="w-full p-2 border rounded transition-colors duration-200" required />
                 </div>
+                
+                <!-- Department Field -->
                 <div class="mb-4">
                     <label for="department" class="block text-sm font-medium mb-1 text-white">Department</label>
                     <input type="text" id="department" name="Department" placeholder="Department" value="{{ old('Department') }}" class="w-full p-2 border rounded transition-colors duration-200" required />
                 </div>
+                
+                <!-- Position Field -->
                 <div class="mb-4">
                     <label for="position" class="block text-sm font-medium mb-1 text-white">Position</label>
                     <input type="text" id="position" name="Position" placeholder="Position" value="{{ old('Position') }}" class="w-full p-2 border rounded transition-colors duration-200" required />
                 </div>
-                
-                <div>
-                    <button type="submit" class="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-500 transition">Save New Employee</button>
+
+                <!-- Image Upload Section -->
+                <div class="mb-4">
+                <label class="block text-sm font-medium mb-1 text-white">Upload Profile Image</label>
+                <input type="file" name="image" class="w-full p-2 border rounded bg-white text-black" accept="image/*" />
                 </div>
+
+                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+                
             </form>
         </div>
+
     </main>
 </body>
 </html>
