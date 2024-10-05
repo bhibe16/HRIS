@@ -24,10 +24,12 @@ class ImageUploadController extends Controller
 
     // Reusable function to handle image upload
     public function uploadImage($image)
-    {
-        $imageName = time() . '_' . $image->getClientOriginalName();
-        $imagePath = $image->storeAs('public/images', $imageName,);
+{
+    $imageName = time() . '_' . $image->getClientOriginalName();
+    $imagePath = $image->storeAs('public/images', $imageName);
 
-        return $imageName; // Return image name for display or further processing
-    }
+    // Return the full path relative to the storage
+    return 'images/' . $imageName; // This will be used for display later
+}
+
 }

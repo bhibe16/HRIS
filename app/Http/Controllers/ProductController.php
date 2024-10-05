@@ -12,7 +12,7 @@ class ProductController extends Controller
     public function index(){
         $products = Product::all();
         return view('products.index', ['products' => $products]);
-        
+
     }
 
     public function create(){
@@ -71,7 +71,7 @@ class ProductController extends Controller
 {
     $query = $request->input('query');
 
-    
+
 }
 
 

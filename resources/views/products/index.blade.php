@@ -26,7 +26,7 @@
             <span class="material-icons">account_circle</span>
         </div>
     </nav>
-    
+
 
     <!-- Sidebar -->
     <aside id="default-sidebar" class="fixed top-0 left-0 z-40 w-64 h-screen bg-gray-900 text-white transform -translate-x-full transition-transform sm:translate-x-0">
@@ -68,7 +68,7 @@
             @endif
         </div>
 
-        
+
 
         <div class="mb-4">
             <div>
@@ -96,11 +96,8 @@
             <tr class="hover:bg-gray-600">
                 <td class="py-2 px-4 border-b">{{ $product->id }}</td>
                 <td class="py-2 px-4 border-b">
-                    @if($product->image)
-                    <img src="{{ asset('storage/' . $product->image) }}" alt="Profile Image" class="w-16 h-16 object-cover rounded-full" />
-                    @else
-                        <span>No Image</span>
-                    @endif
+                    <img src="{{ asset('storage/' . $product->image) }}" alt="Uploaded Image" class=" size-10 rounded-full" style="max-width: 300px;">
+                </td>
                 </td>
                 <td class="py-2 px-4 border-b">{{ $product->First_name }}</td>
                 <td class="py-2 px-4 border-b">{{ $product->Last_name }}</td>

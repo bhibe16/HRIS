@@ -71,31 +71,31 @@
                 </ul>
             @endif
         </div>
-        
+
         <!-- Create Employees Form -->
         <div class="w-full md:w-1/2 mx-auto">
             <form method="POST" action="{{ route('product.index') }}" enctype="multipart/form-data" class="bg-gray-700 p-6 rounded-lg">
-                @csrf 
+                @csrf
                 @method('post')
-                
+
                 <!-- First Name Field -->
                 <div class="mb-4">
                     <label for="first_name" class="block text-sm font-medium mb-1 text-white">First Name</label>
                     <input type="text" id="first_name" name="First_name" placeholder="Firstname" value="{{ old('First_name') }}" class="w-full p-2 border rounded transition-colors duration-200" required />
                 </div>
-                
+
                 <!-- Last Name Field -->
                 <div class="mb-4">
                     <label for="last_name" class="block text-sm font-medium mb-1 text-white">Last Name</label>
                     <input type="text" id="last_name" name="Last_name" placeholder="Lastname" value="{{ old('Last_name') }}" class="w-full p-2 border rounded transition-colors duration-200" required />
                 </div>
-                
+
                 <!-- Department Field -->
                 <div class="mb-4">
                     <label for="department" class="block text-sm font-medium mb-1 text-white">Department</label>
                     <input type="text" id="department" name="Department" placeholder="Department" value="{{ old('Department') }}" class="w-full p-2 border rounded transition-colors duration-200" required />
                 </div>
-                
+
                 <!-- Position Field -->
                 <div class="mb-4">
                     <label for="position" class="block text-sm font-medium mb-1 text-white">Position</label>
@@ -105,11 +105,11 @@
                 <!-- Image Upload Section -->
                 <div class="mb-4">
                 <label class="block text-sm font-medium mb-1 text-white">Upload Profile Image</label>
-                <input type="file" name="image" class="w-full p-2 border rounded bg-white text-black" accept="image/*" />
+                <input type="file" name="image" class="w-full p-2 boSrder rounded bg-white text-black" accept="image/*" />
                 </div>
 
                 <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Submit</button>
-                
+
             </form>
         </div>
 
